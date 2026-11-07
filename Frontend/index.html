@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafeteria</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/styles.css">
+</head>
+
+<body>
+
+    <header class="banner-encabezado">
+        <h1>Cafeteria</h1>
+    </header>
+
+    <main class="contenedor-principal">
+        <!-- el formulario manda los datos al servidor por POST a la ruta /pedido -->
+        <form id="formPedido" action="/pedido" method="post">   
+            
+            <fieldset class="seccion-cliente">
+                <legend class="sr-only">Datos del cliente</legend>
+                
+                <div class="campo-input">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Ingrese tu nombre" required>
+                </div>
+
+                <div class="campo-input">
+                    <label for="correo">Correo</label>
+                    <input type="email" id="correo" name="correo" placeholder="Ingresa tu correo">
+                </div>
+            </fieldset>
+
+            <fieldset class="seccion-opciones">
+                <legend class="sr-only">Detalles del pedido</legend>
+
+                <div class="columna-desplegables">
+                    <div class="select-ovalado">
+                        <select id="producto" name="producto" required>
+                            <option value="" disabled selected hidden>Seleccione el producto</option>
+                            <option value="americano">Americano</option>
+                            <option value="capuchino">Capuchino</option>
+                            <option value="latte">Latte</option>
+                            <option value="mocha">Mocha</option>
+                        </select>
+                        <span class="flecha-select">^</span>
+                    </div>
+
+                    <div class="select-ovalado">
+                        <select id="cantidad" name="cantidad" required>
+                            <option value="" disabled selected hidden>Cantidad</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                        <span class="flechas-cantidad">^<br>v</span>
+                    </div>
+                </div>
+
+                <!-- Columna 2: Tamaño -->
+                <div class="columna-tamano">
+                    <p class="titulo-tamano">Tamaño</p>
+                    <div class="grupo-radios">
+                        <label class="opcion-radio">
+                            <input type="radio" name="tamano" value="chico" required>
+                            <span class="circulo-radio"></span>
+                            Chico
+                        </label>
+                        <label class="opcion-radio">
+                            <input type="radio" name="tamano" value="mediano" required>
+                            <span class="circulo-radio"></span>
+                            Mediano
+                        </label>
+                        <label class="opcion-radio">
+                            <input type="radio" name="tamano" value="grande" required>
+                            <span class="circulo-radio"></span>
+                            Grande
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Columna 3: Para llevar -->
+                <div class="columna-llevar">
+                    <label class="opcion-checkbox">
+                        <input type="checkbox" name="llevar" value="si">
+                        <span class="cuadro-checkbox"></span>
+                        Para llevar
+                    </label>
+                </div>
+            </fieldset>
+
+            <div class="seccion-botones">
+                <button type="reset" class="btn-ovalado">Limpiar</button>
+                <button type="submit" class="btn-ovalado">Pedir</button>
+            </div>
+
+        </form>
+    </main>
+
+</body>
+</html>
